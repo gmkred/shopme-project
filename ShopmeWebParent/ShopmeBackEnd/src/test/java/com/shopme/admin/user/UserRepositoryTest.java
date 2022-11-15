@@ -33,7 +33,6 @@ public class UserRepositoryTest {
 	}
 
 	@Test
-	@Disabled
 	public void testCreateUserWithTwoRoles() {
 		User userArjun = new User("arjun@gmail.com", "Arjun@1234", "Arjun", "Ambati");
 		Role roleEditor = new Role(3);
@@ -65,4 +64,18 @@ public class UserRepositoryTest {
 		repo.save(userArjun);
 	}
 
+	@Test
+	public void testUpdateUserRoles() {
+		User userArjun = repo.findById(2).get();
+		Role roleEditor = new Role(2);
+		Role roleAssistant = new Role(5);
+		userArjun.getRoles().remove(roleEditor);
+		userArjun.addRole(roleAssistant);
+		repo.save(userArjun);
+	}
+
+	@Test
+	public void testDeleteUser() {
+		repo.deleteById(2);
+	}
 }
