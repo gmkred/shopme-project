@@ -17,7 +17,6 @@
 			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
 				<a class="navbar-brand" th:href="@{/}"> <img
 					th:src="@{images/ShopmeAdminSmall.png}" /></a>
-				<!--Responsive page toggler -->
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#topNavbar">
 					<span class="navbar-toggler-icon"></span>
@@ -102,7 +101,8 @@
 				</div>
 				<div class="text-center ">
 					<input type="submit" value="save" class="btn btn-primary m-3" /> <input
-						type="button" value="cancel" class="btn btn-secondary" />
+						type="button" value="cancel" class="btn btn-secondary"
+						id="buttonCancel" />
 				</div>
 
 			</div>
@@ -111,6 +111,12 @@
 			<p>Shopme Control Panel - Copyright &copy; Shopme</p>
 		</div>
 	</div>
-
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#buttonCancel").on("click",function(){
+		window.location = "[[@{/users}]]";
+		});});
+</script>
 </body>
+
 </html>
